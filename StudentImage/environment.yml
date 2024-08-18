@@ -14,3 +14,18 @@ dependencies:
   - h5py
   - git
   - jupyterlab
+  - pydeseq2
+  - minimap2
+  - fastp
+  - bedtools
+  - deeptools
+  - macs3
+#  - kallisto
+  - star
+  - agat
+  - seqkit
+  - samtools
+  - ucsc-wigtobigwig
+  - ucsc-bedgraphtobigwig
+  - pip:
+      - jupyterlab-rise

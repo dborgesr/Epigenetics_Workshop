@@ -16,6 +16,10 @@ ENV APT_PACKAGES=" \
 		bzip2 \
 		curl \
 		zip \
+		build-essential \
+		autoconf \
+		libhdf5-dev \
+		cmake \
 		"
 
 #Set up shell for install
@@ -47,6 +51,18 @@ RUN wget -qO- https://micromamba.snakepit.net/api/micromamba/linux-64/latest | t
 	micromamba clean --all --yes && \
 	rm ${MAMBA_ROOT_PREFIX}/lib/*.a && \
 	rm -rf ${MAMBA_ROOT_PREFIX}/pkgs
+
+# Get kallisto and build from source -_-
+RUN git clone https://github.com/pachterlab/kallisto.git && \
+	cd ./kallisto/ext/htslib && \
+	autoheader && \
+	autoheader && \
+	cd ../../ && \
+	mkdir build && \
+	cd build && \
+	cmake .. && \
+	make && \
+	make install 
 
 # Set Epigenetics_Workshop as workdir and copy repo
 ENV LOCAL_BASE="/data"
