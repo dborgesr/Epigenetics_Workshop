@@ -21,7 +21,7 @@ dependencies:
   - deeptools
   - macs3
 #  - kallisto
-  - star
+  - star=2.7.9a
   - agat
   - seqkit
   - samtools
